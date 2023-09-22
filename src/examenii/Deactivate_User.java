@@ -46,7 +46,7 @@ public class Deactivate_User extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
-        jLabel1.setText("Agregar User");
+        jLabel1.setText("Desactivar User");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel2.setText("User: ");
@@ -72,7 +72,7 @@ public class Deactivate_User extends javax.swing.JFrame {
 
         btnAgregar.setBackground(new java.awt.Color(153, 153, 0));
         btnAgregar.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        btnAgregar.setText("Agregar");
+        btnAgregar.setText("Desactivar");
         btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAgregarMouseClicked(evt);
