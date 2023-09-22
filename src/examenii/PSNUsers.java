@@ -146,17 +146,10 @@ public class PSNUsers {
             try {
                 raf.seek(pos);
                 String storedUsername = raf.readUTF();
-                long points = raf.readLong();
-                int trophies = raf.readInt();
-                boolean active = raf.readBoolean();
-
-                System.out.println("Información del Usuario:");
-                System.out.println("Username: " + storedUsername);
-                System.out.println("Puntos por Trofeos: " + points);
-                System.out.println("Número de Trofeos: " + trophies);
-                System.out.println("Estado: " + (active ? "Activo" : "Inactivo"));
-
-                try (RandomAccessFile trophiesFile = new RandomAccessFile("psn_trophies.dat", "rw")) {
+                long puntos = raf.readLong();
+                int trofeos = raf.readInt();
+                boolean activo = raf.readBoolean();
+                try (RandomAccessFile trophiesFile = new RandomAccessFile("trofeos.bts", "rw")) {
                     trophiesFile.seek(0);
                     while (trophiesFile.getFilePointer() < trophiesFile.length()) {
                         String user = trophiesFile.readUTF();
