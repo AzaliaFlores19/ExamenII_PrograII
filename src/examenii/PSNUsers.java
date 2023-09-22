@@ -22,6 +22,8 @@ public class PSNUsers {
     public HashTable users;
     Date date;
      private static final String Registro_Archivos = "datos.bts";
+     private static final String Registro_Trofeos = "trofeos.bts";
+     
     
     public PSNUsers(String archivoN){
        try {
@@ -32,6 +34,19 @@ public class PSNUsers {
         }
 
         raf = new RandomAccessFile(file, "rw");
+        users = new HashTable();
+        reloadHashTable();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+       
+       try {
+        File file = new File(Registro_Trofeos);
+
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+
         psn = new RandomAccessFile(file, "rw");
         users = new HashTable();
         reloadHashTable();
@@ -72,6 +87,7 @@ public class PSNUsers {
             raf.writeBoolean(true);
             // Agregar el usuario 
             users.add(username, raf.getFilePointer()- 25); 
+            JOptionPane.showMessageDialog(null, "Se agrego el user");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -80,14 +96,14 @@ public class PSNUsers {
     public void deactivateUser(String username) {
         long pos=users.Search(username);
         if (pos!=-1) {
-            try {
-                raf.seek(pos + 21); 
-                raf.writeBoolean(false); 
-                // Eliminar el usuario
-                users.remove(username);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+           try {
+            raf.seek(pos + 21); 
+            raf.writeBoolean(false); 
+            users.remove(username); 
+            JOptionPane.showMessageDialog(null, "Se desactivo el usuario");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         } else {
             JOptionPane.showMessageDialog(null, "El usuario no existe");
         }
@@ -113,6 +129,8 @@ public class PSNUsers {
                 psn.writeUTF(trophyGame); 
                 psn.writeUTF(trophyName); 
                 psn.writeUTF(fecha); 
+                
+                JOptionPane.showMessageDialog(null,"Se agrego el trofeo");
 
             } catch (IOException e) {
                 e.printStackTrace();

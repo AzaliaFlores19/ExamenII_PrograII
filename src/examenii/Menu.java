@@ -15,6 +15,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu(PSNUsers psn) {
         initComponents();
+        setLocationRelativeTo(this);
         this.psn=psn;
     }
 
@@ -166,7 +167,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarUserActionPerformed
 
     private void btnAgregarTrofeoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarTrofeoActionPerformed
-      
+        AgregarTrofeo trofeo= new AgregarTrofeo(this,psn);
+        trofeo.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAgregarTrofeoActionPerformed
 
     private void btnPlayerInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerInfoActionPerformed

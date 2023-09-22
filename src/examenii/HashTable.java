@@ -4,6 +4,8 @@
  */
 package examenii;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Azalia
@@ -24,6 +26,8 @@ public class HashTable {
    }
     
    public void add(String username, long pos){
+      
+   
        Entry nueva=new Entry(username,pos);
        if(inicio==null){
            inicio=nueva;
